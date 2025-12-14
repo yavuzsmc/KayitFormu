@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kulüp Kayıt Sistemi</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #df1818, #f5c4c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgb(197, 196, 196);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Kulüp Kayıt Formu</h2>
+    <form id="clubForm">
+      <label>İsim Soyisim:</label>
+      <input type="text" id="name" required>
+
+      <label>Yaş:</label>
+      <input type="number" id="age" required>
+
+      <label>Hobiler:</label>
+      <textarea id="hobbies" rows="3" placeholder="Örneğin: Kitap okumak, yüzme..."></textarea>
+
+      <label>Katılmak istediğiniz kulüp:</label>
+      <select id="club" required>
+        <option value="">Seçiniz</option>
+        <option value="spor">Spor Kulübü</option>
+        <option value="cizim">Çizim Kulübü</option>
+        <option value="ceviri">Çeviri Kulübü</option>
+        <option value="sanat">Sanat Kulübü</option>
+        <option value="uzaycilik">Uzaycılık Kulübü</option>
+        <option value="psikoloji">Psikoloji Kulübü</option>
+      </select>
+
+      <button type="submit">Kaydı Tamamla</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("clubForm").addEventListener("submit", function(event){
+      event.preventDefault();
+
+      const club = document.getElementById("club").value;
+
+      if(!club) {
+        alert("Lütfen bir kulüp seçiniz!");
+        return;
+      }
+
+      // Kulübe göre test sayfasına yönlendirme
+      switch(club) {
+        case "spor":
+          window.location.href = "test_spor.html";
+          break;
+        case "cizim":
+          window.location.href = "test_cizim.html";
+          break;
+        case "ceviri":
+          window.location.href = "test_ceviri.html";
+          break;
+        case "sanat":
+          window.location.href = "test_sanat.html";
+          break;
+        case "uzaycilik":
+          window.location.href = "test_uzaycilik.html";
+          break;
+        case "psikoloji":
+          window.location.href = "test_psikoloji.html";
+          break;
+      }
+    });
+  </script>
+
+</body>
+</html>
